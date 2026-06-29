@@ -1,0 +1,380 @@
+/* =====================================================================
+   AKILI ZA KESHO — STYLESHEET (style.css)
+   =====================================================================
+   This file controls how the page LOOKS. The HTML file controls what
+   the page CONTAINS. Keeping them separate is a core web dev habit.
+
+   TIP FOR INTERNS: Try changing the values inside the ":root" block
+   below first — it's the safest way to re-theme the whole page at once.
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. ROOT VARIABLES (the "theme" of the whole site)
+   These are custom CSS variables. Change a colour ONCE here, and it
+   updates everywhere it's used on the page. This is the easiest way
+   for interns to re-skin the page without touching anything else.
+------------------------------------------------------------------------ */
+:root {
+    --color-navy: #16235B;       /* primary brand colour, from the AZK logo */
+    --color-teal: #168C7D;       /* secondary brand colour, from the AZK logo */
+    --color-cream: #F7F8F5;      /* soft background colour */
+    --color-white: #FFFFFF;
+    --color-text: #1F2433;       /* main body text colour (near-black) */
+    --color-muted: #5B6275;      /* lighter grey text for subtext */
+
+    --font-heading: 'Poppins', sans-serif; /* bold font for headings */
+    --font-body: 'Inter', sans-serif;      /* clean font for paragraphs */
+
+    --radius: 14px;               /* rounded corner size, reused everywhere */
+    --max-width: 1100px;          /* max width of content so it doesn't stretch too wide on big screens */
+}
+
+
+/* ---------------------------------------------------------------------
+   2. RESET / BASE STYLES
+   Browsers add their own default spacing — we remove it here so our
+   own spacing choices are consistent across all browsers.
+------------------------------------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* makes padding/border included in element width — avoids layout surprises */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-cream);
+    line-height: 1.6; /* comfortable spacing between lines of text */
+    scroll-behavior: smooth; /* smooth scroll when clicking nav links */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+}
+
+a {
+    text-decoration: none; /* removes the default underline on links */
+    color: inherit;
+}
+
+
+/* ---------------------------------------------------------------------
+   3. HEADER / NAVIGATION
+------------------------------------------------------------------------ */
+.site-header {
+    display: flex;                 /* lays out logo + nav side-by-side */
+    justify-content: space-between; /* pushes them to opposite ends */
+    align-items: center;
+    padding: 16px 40px;
+    background-color: var(--color-white);
+    position: sticky;   /* keeps the header pinned to the top while scrolling */
+    top: 0;
+    z-index: 100;        /* makes sure header stays above other content */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* subtle shadow for depth */
+}
+
+.logo {
+    height: 40px; /* controls the logo size — change this to resize it */
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px; /* spacing between each nav link */
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: var(--color-navy);
+    transition: color 0.2s ease; /* smooth colour change on hover */
+}
+
+.nav-links a:hover {
+    color: var(--color-teal);
+}
+
+
+/* ---------------------------------------------------------------------
+   4. HERO SECTION
+------------------------------------------------------------------------ */
+.hero {
+    max-width: var(--max-width);
+    margin: 0 auto;          /* centers the section horizontally */
+    padding: 100px 24px 80px;
+    text-align: center;
+}
+
+.hero-tag {
+    display: inline-block;
+    background-color: rgba(22, 140, 125, 0.1); /* light teal background */
+    color: var(--color-teal);
+    padding: 6px 16px;
+    border-radius: 50px; /* fully rounded "pill" shape */
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Colours just the highlighted word inside the <span> in the headline */
+.highlight {
+    color: var(--color-teal);
+}
+
+.hero-subtext {
+    max-width: 650px;
+    margin: 0 auto 32px;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap; /* lets buttons stack on small screens instead of overflowing */
+}
+
+/* Shared button styles */
+.btn {
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* button lifts slightly on hover */
+}
+
+.btn-primary {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 20px rgba(22, 35, 91, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+}
+
+
+/* ---------------------------------------------------------------------
+   5. GENERIC SECTION STYLES (reused by About / Program / Team / Deploy)
+------------------------------------------------------------------------ */
+.section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 70px 24px;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--color-muted);
+    max-width: 650px;
+    margin: -16px auto 36px;
+}
+
+/* Git command snippets — styled to look like a terminal/code block */
+.timeline code {
+    display: inline-block;
+    background-color: #11182c;   /* dark terminal-style background */
+    color: #7ee8c7;               /* light green text, like a terminal prompt */
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 6px;
+    overflow-x: auto;             /* allows horizontal scroll on long commands instead of breaking layout */
+    max-width: 100%;
+}
+
+
+/* ---------------------------------------------------------------------
+   6. CARD GRID (used in About + Trainers sections)
+------------------------------------------------------------------------ */
+.card-grid {
+    display: grid;
+    /* auto-fit + minmax = grid auto-adjusts columns based on screen width */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--color-white);
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px); /* card lifts slightly on hover, feels interactive */
+}
+
+.card-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+}
+
+.card p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------------------
+   7. TIMELINE (used in Program section)
+------------------------------------------------------------------------ */
+.timeline {
+    list-style: none;        /* removes default numbering — we use our own "Day X" labels */
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.timeline li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.day {
+    flex-shrink: 0; /* keeps the "Day X" label from shrinking on small screens */
+    background-color: var(--color-teal);
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    border-radius: 50px;
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------------------
+   8. TRAINER AVATARS (used in Team section)
+------------------------------------------------------------------------ */
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%; /* turns the square into a perfect circle */
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+}
+
+
+/* ---------------------------------------------------------------------
+   9. DEPLOYMENT STEPS
+------------------------------------------------------------------------ */
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: var(--color-white);
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.step h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.step p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------------------
+   10. FOOTER
+------------------------------------------------------------------------ */
+.site-footer {
+    text-align: center;
+    padding: 28px 24px;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------------------------
+   11. RESPONSIVE STYLES (for mobile phones / small screens)
+   Anything inside this block ONLY applies when the screen is
+   600px wide or smaller — like a phone.
+------------------------------------------------------------------------ */
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 14px 20px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: 0.85rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* smaller heading so it fits on small screens */
+    }
+
+    .hero {
+        padding: 70px 20px 50px;
+    }
+
+}

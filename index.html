@@ -1,0 +1,321 @@
+<!-- 
+  =====================================================================
+  AKILI ZA KESHO (AZK) — INTERNSHIP DEMO LANDING PAGE
+  =====================================================================
+  Purpose: This page is used to TEACH new interns how a real web page
+  is structured, styled, and pushed to GitHub for deployment.
+
+  Trainers: Niwasiima Ashelycole & Rwothomio Evans
+
+  HOW TO USE THIS FILE WITH YOUR INTERNS:
+  1. Walk through the comments top-to-bottom — every section explains
+     itself in plain English.
+  2. Have each intern change ONE thing (a colour, a word, an image)
+     and commit it to their forked GitHub repo as practice.
+  3. Deploy this folder using GitHub Pages, Netlify, or Vercel — all
+     three are free and explained at the bottom of this file.
+  =====================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Character encoding so special characters (like emojis) display correctly -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive (mobile-friendly) by matching the screen's width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- This text shows in the browser tab -->
+    <title>Akili za Kesho | Internship Demo</title>
+
+    <!-- 
+      We are linking to an EXTERNAL CSS file called "style.css".
+      Keeping CSS in its own file (instead of inside this HTML file)
+      is a best practice — it keeps code organised and easy to maintain.
+    -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts: importing two fonts — one bold for headings, one clean for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- =================================================================
+         HEADER / NAVIGATION BAR
+         This is the strip at the very top of the page.
+         It stays the same no matter which section the visitor scrolls to.
+    ================================================================== -->
+    <header class="site-header">
+
+        <!-- Logo + Brand name, grouped together -->
+        <div class="brand">
+            <!-- The logo image. alt text describes the image for screen readers / if image fails to load -->
+            <img src="logo.png" alt="Akili za Kesho logo" class="logo">
+        </div>
+
+        <!-- Navigation links — clicking these jumps to sections further down the SAME page -->
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#program">Program</a>
+            <a href="#team">Trainers</a>
+            <a href="#deploy">Deployment</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =================================================================
+         HERO SECTION
+         The big eye-catching block right under the header.
+         This is the FIRST thing a visitor sees — it must grab attention.
+    ================================================================== -->
+    <section class="hero">
+
+        <!-- A small "tag" label above the big heading -->
+        <p class="hero-tag">AZK Ventures — Internship Demo</p>
+
+        <!-- Main headline. The <span> lets us colour ONE word differently -->
+        <h1>Bridging <span class="highlight">Technology</span> and Nature</h1>
+
+        <!-- Supporting paragraph that explains the page in one or two sentences -->
+        <p class="hero-subtext">
+            This page is a live teaching example built by our interns to practice
+            HTML, CSS, GitHub collaboration, and real-world deployment —
+            the same skills used by tech teams worldwide.
+        </p>
+
+        <!-- Call-to-action buttons -->
+        <div class="hero-buttons">
+            <a href="#program" class="btn btn-primary">See the Program</a>
+            <a href="#deploy" class="btn btn-secondary">How We Deployed This</a>
+        </div>
+
+    </section>
+
+
+    <!-- =================================================================
+         ABOUT SECTION
+         Explains what Akili za Kesho is and what this internship covers.
+    ================================================================== -->
+    <section id="about" class="section about">
+
+        <h2>About This Internship</h2>
+
+        <!-- Paragraph 1: who AZK is -->
+        <p>
+            Akili za Kesho ("Minds of Tomorrow" in Swahili) is a Uganda-based
+            tech ventures and training organisation under the
+            <strong>Tomorrow Minds</strong> initiative. AZK's mission is
+            <em>bridging technology and nature</em> — building practical,
+            African-led solutions in software, data, cybersecurity, and
+            hardware/IoT, while contributing to UN Sustainable Development
+            Goals 4 (Quality Education), 8 (Decent Work & Economic Growth),
+            and 9 (Industry, Innovation & Infrastructure).
+        </p>
+
+        <!-- Paragraph 2: what the internship is -->
+        <p>
+            AZK runs a hands-on, Agile-style tech internship rather than a
+            traditional one. Interns are grouped into small cross-functional
+            teams called <strong>Pods</strong> — each with a Project Manager,
+            Builders/Analysts, and a Director acting as Product Owner. Pods
+            spend several weeks designing and building a real venture from
+            scratch, using the same tools and workflows used by professional
+            software teams worldwide: GitHub for code, Trello/Jira for task
+            tracking, and weekly Agile Sprints with stand-ups and a Friday
+            "Venture Defense" review.
+        </p>
+
+        <!-- A 3-column grid showing the core skills taught -->
+        <div class="card-grid">
+
+            <!-- Each "card" is one skill block. Copy/paste this block to add more cards -->
+            <div class="card">
+                <h3>Agile Collaboration</h3>
+                <p>Sprints, daily stand-ups, and Kanban boards keep every Pod organised.</p>
+            </div>
+
+            <div class="card">
+                <h3>GitHub Workflow</h3>
+                <p>Fork, commit, push, and Pull Request — the real way code moves into production.</p>
+            </div>
+
+            <div class="card">
+                <h3>Live Deployment</h3>
+                <p>This exact page was deployed using GitHub Pages — free hosting for static sites.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================================
+         GIT COMMANDS SECTION
+         A simple cheat-sheet showing the exact terminal commands interns
+         type to fork, edit, and push their work to GitHub.
+    ================================================================== -->
+    <section id="program" class="section program">
+
+        <h2>Git Commands Cheat Sheet</h2>
+
+        <p class="section-intro">
+            These are the exact commands every intern runs in their terminal
+            to collaborate on this project. Run them in order, from inside
+            your project folder.
+        </p>
+
+        <!-- 
+          This is an ordered structure — order matters here because these
+          commands run in sequence, one after another.
+        -->
+        <ol class="timeline">
+            <li>
+                <span class="day">Step 1</span>
+                <div>
+                    <p>Clone your forked copy of the repo to your computer.</p>
+                    <code>git clone https://github.com/your-username/AZK-Intern-Roster-2026.git</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 2</span>
+                <div>
+                    <p>Move into the project folder.</p>
+                    <code>cd AZK-Intern-Roster-2026</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 3</span>
+                <div>
+                    <p>Create a new branch for your changes (keeps your edits separate from the main code).</p>
+                    <code>git checkout -b my-name-update</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 4</span>
+                <div>
+                    <p>Check which files you've changed.</p>
+                    <code>git status</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 5</span>
+                <div>
+                    <p>Stage your changes so Git knows to save them in the next commit.</p>
+                    <code>git add .</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 6</span>
+                <div>
+                    <p>Commit your changes with a clear, short message.</p>
+                    <code>git commit -m "Add my bio to the team page"</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 7</span>
+                <div>
+                    <p>Push your branch up to your GitHub fork.</p>
+                    <code>git push origin my-name-update</code>
+                </div>
+            </li>
+            <li>
+                <span class="day">Step 8</span>
+                <div>
+                    <p>Go to GitHub and open a Pull Request so a trainer can review and merge your work.</p>
+                    <code>Open a Pull Request on github.com</code>
+                </div>
+            </li>
+        </ol>
+
+    </section>
+
+
+    <!-- =================================================================
+         TRAINERS / TEAM SECTION
+         Introduces the people running this demo.
+    ================================================================== -->
+    <section id="team" class="section team">
+
+        <h2>Meet the Trainers</h2>
+
+        <div class="card-grid">
+
+            <div class="card trainer-card">
+                <div class="avatar">NA</div> <!-- Simple initials avatar, no image needed -->
+                <h3>Niwasiima Ashelycole</h3>
+                <p>Trainer — Product, Design & Build</p>
+            </div>
+
+            <div class="card trainer-card">
+                <div class="avatar">RE</div>
+                <h3>Rwothomio Evans</h3>
+                <p>Trainer — Collaboration & Deployment</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================================
+         DEPLOYMENT SECTION
+         Explains, in plain steps, how this page goes from a laptop to
+         a live link on the internet. This is the "teaching moment."
+    ================================================================== -->
+    <section id="deploy" class="section deploy">
+
+        <h2>How We Collaborate & Deploy on GitHub</h2>
+
+        <div class="steps">
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <div>
+                    <h3>Fork the Repository</h3>
+                    <p>Each intern forks the shared AZK repo to get their own copy.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <div>
+                    <h3>Commit Your Changes</h3>
+                    <p>Edit the code locally, save it, then commit with a clear message.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <div>
+                    <h3>Push & Open a Pull Request</h3>
+                    <p>Push your commit to GitHub, then open a PR so trainers can review it.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <div>
+                    <h3>Deploy with GitHub Pages</h3>
+                    <p>Once merged, GitHub Pages turns this folder into a live website link — free and instant.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================================
+         FOOTER
+         The closing strip at the bottom of every page.
+    ================================================================== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Akili za Kesho Ventures — Internship Demo Page · Built by Interns, for Interns</p>
+    </footer>
+
+</body>
+</html>
